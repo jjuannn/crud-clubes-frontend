@@ -12,11 +12,67 @@
 <body>
     <h1 id="header">CRUD Clubes</h1>
 
+  
+  <!-- Modal ver-equipo -->
+  <div class="modal fade" id="label-informacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="nombre">Barcelona</h5>
+          <img src="" id="escudo">
+        </div>
+        <div class="modal-body" id="info-equipo">
+          <h5>TLA: <strong id="tla"></strong></h5>
+          <h5>Fundacion: <strong id="fundacion"></strong></h5>
+          <h5>Direccion: <strong id="direccion"></strong></h5>
+          <h5>Estadio: <strong id="estadio"></strong></h5>
+          <h5>Numero ID: <stron id="id"></strong></h5>
+          <h5>Pais: <strong id="pais"></strong></h5>
+          <h5>Telefono: <strong id="telefono"></strong></h5>
+          <h5>Website: <strong id="website"></strong></h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>    
+    
+    <!-- Modal editar-equipo -->
+
+    <div class="modal fade" id="label-editar-equipo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+                <h5>Editar equipo</h5>
+            </div>
+            <div class="modal-body" id="info-equipo">
+              <h5>TLA: <strong id="tla"></strong></h5>
+              <h5>Fundacion: <strong id="fundacion"></strong></h5>
+              <h5>Direccion: <strong id="direccion"></strong></h5>
+              <h5>Estadio: <strong id="estadio"></strong></h5>
+              <h5>Numero ID: <stron id="id"></strong></h5>
+              <h5>Pais: <strong id="pais"></strong></h5>
+              <h5>Telefono: <strong id="telefono"></strong></h5>
+              <h5>Website: <strong id="website"></strong></h5>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+    </div>  
+
+
+
+
     <div id="container">
         
     </div>
 
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src='main.js' type="module"></script>
 </body>
 </html>
