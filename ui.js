@@ -1,4 +1,6 @@
 import { obtenerInfoEquipo } from "./manager.js"
+import { borrarEquipo } from "./api.js"
+
 
 export function crearCartasEquipos(equipos){
     const container = document.querySelector("#container")
@@ -41,6 +43,9 @@ export function crearCartasEquipos(equipos){
         const $borrarEquipo = document.createElement("a")
         $borrarEquipo.className = "btn btn-danger button"
         $borrarEquipo.textContent = "Borrar"
+        $borrarEquipo.addEventListener( "click", async () => {
+            borrarEquipoDeLista(numeroId)
+        })
         $cartaBody.append($borrarEquipo)
 
         container.append($carta)
@@ -57,5 +62,12 @@ function mostrarInformacionEquipo(equipo){
     document.querySelector("#pais").textContent = equipo.pais
     document.querySelector("#telefono").textContent = equipo.telefono
     document.querySelector("#website").textContent = equipo.website
-
 }   
+
+
+// document.location.reload(true)
+
+function borrarEquipoDeLista(id){
+    borrarEquipo(id)
+    document.location.reload(true)
+}
