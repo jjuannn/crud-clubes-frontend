@@ -1,7 +1,7 @@
 #header{
     background-color: lightblue;
     text-align: center;
-    box-shadow: 0px 7px 14px -1px rgba(0,0,0,0.75);
+    box-shadow: 0px 7px 14px -8px rgba(0,0,0,0.75);
 }
 .carta{
     text-align: center;
@@ -11,6 +11,7 @@
     padding-top: 5px;
     max-height: 190px;
     min-height: 190px;
+    box-shadow: 0px 7px 10px -5px rgba(0,0,0,0.75);
 }
 .escudoCarta{
     width: 70px;
@@ -23,6 +24,14 @@
     text-align: center;
     margin-top: 15px;
 }
-.btn{
+.button{
     margin-left: 2px;
+}
+#info-equipo{
+    text-align: center;
+}
+#escudo{
+    width: 50px;
+    height: 50px;
+    justify-content: left;
 }
