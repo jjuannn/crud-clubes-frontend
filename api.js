@@ -8,8 +8,8 @@ export function buscarListaEquipos(){
     })
 }
 
-export function buscarInfoEquipo(numeroId){
-    return fetch(`${BASE_URL}ver-equipo?id=${numeroId}`)
+export function buscarInfoEquipo(numeroId, action){
+    return fetch(`${BASE_URL}${action}-equipo?id=${numeroId}`)
     .then(response => response.json())
     .then(responseJSON => {
         return responseJSON
@@ -23,3 +23,10 @@ export function borrarEquipo(numeroId){
         return responseJSON
     })
 }
+
+export function enviarDatosForm(id, formData){
+    fetch(`${BASE_URL}editar-equipo?id=${id}`, {
+        method:"POST",
+        body: formData
+    }
+)}
