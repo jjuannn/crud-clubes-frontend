@@ -1,5 +1,5 @@
 import { obtenerInfoEquipo } from "./manager.js"
-import { borrarEquipo, enviarDatosForm } from "./api.js"
+import { borrarEquipo, enviarEdicionDeEquipo, enviarAgregarEquipo } from "./api.js"
 
 export function crearCartasEquipos(equipos){
     const container = document.querySelector("#container")
@@ -57,10 +57,9 @@ export function crearCartasEquipos(equipos){
     })
 }
 
-const $form = document.querySelector("#form-editar-equipo")
+const $formEditarEquipo = document.querySelector("#form-editar-equipo")
 
-$form.addEventListener("submit", (e) => {
-
+$formEditarEquipo.addEventListener( "submit", (e) => {
     const id = document.querySelector("#numeroId-editar").value
 
     var formElement = document.getElementById("form-editar-equipo")
@@ -71,8 +70,26 @@ $form.addEventListener("submit", (e) => {
     const foto = URL.createObjectURL(file)
     formData.append('escudo', foto);
 
-    enviarDatosForm(id ,formData)
+    enviarEdicionDeEquipo(id , formData)
 })
+
+const $formAgregarEquipo = document.querySelector("#form-agregar-equipo")
+
+$formAgregarEquipo.addEventListener( "submit", (e) => {
+
+    var formElement = document.getElementById("form-agregar-equipo")
+    var fileInput = document.querySelector("#imagen-agregar")
+    var formData = new FormData(formElement)
+
+    var file = fileInput.files[0]
+    const foto = URL.createObjectURL(file)
+    formData.append('escudo', foto)
+
+    enviarAgregarEquipo(formData)
+})
+
+
+
 
 function mostrarEditarEquipo(equipo){
     document.querySelector("#nombre-editar").value = equipo.nombre
