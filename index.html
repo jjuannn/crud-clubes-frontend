@@ -10,10 +10,75 @@
     
 </head>
 <body>
-    <h1 id="header">CRUD Clubes</h1>
+    <h1 id="header"><a href="/">CRUD CLUBES</a></h1>
 
-  
-  <!-- Modal ver-equipo -->
+    <h2 id="div-agregar-equipo">
+        <p>No aparece tu equipo favorito?</p>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-agregar-equipo">
+          Agregar un equipo a la lista
+        </button>
+    </h2>
+
+
+<!--- Modal agregar-equipo -->
+  <div class="modal fade" id="modal-agregar-equipo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" id="modal-editar-equipo-body">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h5>Agregar equipo</h5>
+        </div>
+        <div class="modal-body">
+          <form id="form-agregar-equipo" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="nombre-agregar">Nombre del club:*</label>
+              <input type="text" id="nombre-agregar" name="nombre" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="tla-agregar">Abreviatura:*</label>
+              <input type="text" id="tla-agregar" name="abreviatura" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="estadio-agregar">Estadio:*</label>
+              <input type="text" id="estadio-agregar" name="estadio" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="direccion-agregar">Direccion:*</label>
+              <input type="text" id="direccion-agregar" name="direccion" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="fundacion-agregar">Año de fundacion:*</label>
+              <input type="number" id="anoFundacion-agregar" name="anoFundacion" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="numeroId-agregar">Id:*</label>
+              <input type="number" id="numeroId-agregar" name="numeroId" min="1000" class="form-control">
+            </div>
+            <div class="form-group-agregar">
+              <label for="telefono">Telefono:*</label>
+              <input type="text" id="telefono-agregar" name="telefono" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="website-agregar">Sitio web:*</label>
+              <input type="text" class="form-control" id="website-agregar" name="website" required>
+            </div>
+            <div class="form-group">
+              <label for="pais-agregar">Pais:*</label>
+              <input type="text" class="form-control" id="pais-agregar" name="pais" required>
+            </div>
+            <div class="form-group">
+                <label for="imagen-agregar">Escudo:*</label>
+                <input type="file" class="form-control" text="Seleccionar escudo" id="imagen-agregar" name="escudo" required>
+            </div>
+            <p id="aclaracion">*Required field</p>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal ver-equipo -->
   <div class="modal fade" id="modal-informacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -38,9 +103,9 @@
     </div>
   </div>    
     
-    <!-- Modal editar-equipo -->
+<!-- Modal editar-equipo -->
 
-    <div class="modal fade" id="modal-editar-equipo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modal-editar-equipo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" id="modal-editar-equipo-body">
           <div class="modal-content">
             <div class="modal-header">
@@ -95,18 +160,15 @@
             </div>
           </div>
         </div>
-    </div>  
+  </div>  
 
-
-
-
-    <div id="container">
+  <div id="container">
         
-    </div>
+  </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <script src='main.js' type="module"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src='main.js' type="module"></script>
 </body>
 </html>
