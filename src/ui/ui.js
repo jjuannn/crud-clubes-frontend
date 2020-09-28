@@ -103,23 +103,6 @@ function mostrarEditarEquipo(equipo){
     document.querySelector("#website-editar").value = equipo.website
 }   
 
-function obtenerValoresDeForm(){
-    const nombre = document.querySelector("[name='nombre']").value
-    const abreviatura = document.querySelector("[name='abreviatura']").value
-    const estadio = document.querySelector("[name='estadio']").value
-    const direccion = document.querySelector("[name='direccion']").value
-    const anoFundacion = document.querySelector("[name='anoFundacion']").value
-    const numeroId = document.querySelector("[name='numeroId']").value
-    const telefono = document.querySelector("[name='telefono']").value
-    const website = document.querySelector("[name='website']").value
-    const pais = document.querySelector("[name='pais']").value
-    const escudo = document.querySelector("[name='escudo']").value
-    
-    return {
-        nombre, abreviatura, estadio, direccion, anoFundacion, numeroId, telefono, website, pais, escudo
-    }
-}
-
 function mostrarInformacionEquipo(equipo){
     document.querySelector("#nombre-ver").textContent = equipo.nombre
     document.querySelector("#escudo-ver").src = equipo.fotoEscudo
