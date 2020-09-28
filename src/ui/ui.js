@@ -1,5 +1,5 @@
-import { obtenerInfoEquipo } from "./manager.js"
-import { borrarEquipo, enviarEdicionDeEquipo, enviarAgregarEquipo } from "./api.js"
+import { obtenerInfoEquipo } from "../teamManager/manager.js"
+import { borrarEquipo, enviarEdicionDeEquipo, enviarAgregarEquipo } from "../api/api.js"
 
 export function crearCartasEquipos(equipos){
     const container = document.querySelector("#container")

@@ -1,4 +1,4 @@
-import { buscarInfoEquipo } from "./api.js"
+import { buscarInfoEquipo } from "../api/api.js"
 import { mapearEquipo } from "./mapper.js"
 
 export async function obtenerInfoEquipo(id, action){
