@@ -23,15 +23,15 @@ export function borrarEquipo(numeroId){
         return responseJSON
     })
 }
-export function enviarEdicionDeEquipo(id, formData){
+export function enviarEdicionDeEquipo(id, data){
     fetch(`${BASE_URL}editar-equipo?id=${id}`, {
         method:"POST",
-        body: formData
+        body: data
     }
 )}
-export function enviarAgregarEquipo(formData){
+export function enviarAgregarEquipo(data){
     fetch(`${BASE_URL}agregar-equipo`, {
         method:"POST",
-        body: formData
+        body: data
     }
 )}
