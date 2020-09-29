@@ -18,11 +18,8 @@ export function buscarInfoEquipo(numeroId, action){
 
 export function borrarEquipo(numeroId){
     return fetch(`${BASE_URL}borrar-equipo?id=${numeroId}`)
-    .then(response => response.json())
-    .then(responseJSON => {
-        return responseJSON
-    })
 }
+
 export function enviarEdicionDeEquipo(id, data){
     fetch(`${BASE_URL}editar-equipo?id=${id}`, {
         method:"POST",
