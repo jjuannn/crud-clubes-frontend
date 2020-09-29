@@ -88,9 +88,6 @@ $formAgregarEquipo.addEventListener( "submit", (e) => {
     enviarAgregarEquipo(formData)
 })
 
-
-
-
 function mostrarEditarEquipo(equipo){
     document.querySelector("#nombre-editar").value = equipo.nombre
     document.querySelector("#tla-editar").value = equipo.abreviatura
