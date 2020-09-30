@@ -30,5 +30,5 @@ export function enviarAgregarEquipo(data){
     fetch(`${BASE_URL}agregar-equipo`, {
         method:"POST",
         body: data
-    }
-)}
+    })
+}
