@@ -35,7 +35,7 @@
             </div>
             <div class="form-group">
               <label for="tla-agregar">Abreviatura:*</label>
-              <input type="text" id="tla-agregar" name="abreviatura" class="form-control" required>
+              <input type="text" id="tla-agregar" maxlength="3" name="abreviatura" class="form-control" required>
             </div>
             <div class="form-group">
               <label for="estadio-agregar">Estadio:*</label>
@@ -70,7 +70,7 @@
                 <input type="file" class="form-control" text="Seleccionar escudo" id="imagen-agregar" name="escudo" required>
             </div>
             <p id="aclaracion">*Required field</p>
-            <button type="submit" class="btn btn-primary">Agregar</button>
+            <button type="submit" id="boton-agregar-equipo" class="btn btn-primary">Agregar</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
           </form>
         </div>
@@ -119,7 +119,7 @@
                 </div>
                 <div class="form-group">
                   <label for="tla-editar">Abreviatura:*</label>
-                  <input type="text" id="tla-editar" name="abreviatura" class="form-control" required>
+                  <input type="text" id="tla-editar" maxlength="3" name="abreviatura" class="form-control" required>
                 </div>
                 <div class="form-group">
                   <label for="estadio-editar">Estadio:*</label>
@@ -154,7 +154,7 @@
                     <input type="file" class="form-control" text="Seleccionar escudo" id="imagen-editar" name="escudo" required>
                 </div>
                 <p id="aclaracion">*Required field</p>
-                <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                <button type="submit" id="enviar-cambios" class="btn btn-primary">Guardar cambios</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
               </form>
             </div>
