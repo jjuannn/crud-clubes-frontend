@@ -1,7 +1,12 @@
-import { obtenerInfoEquipo } from "../teamManager/manager.js"
-import { borrarEquipo, enviarEdicionDeEquipo, enviarAgregarEquipo } from "../api/api.js"
+import { borrarEquipo } from "../api/api.js"
 
-export function crearCartasEquipos(equipos){
+export function crearCartasEquipos(
+    equipos,
+    callbackParaVerEquipo,
+    callbackParaEditarEquipo, 
+    callbackParaEliminarEquipo, 
+    callbackParaObtenerInformacion
+    ){
     const container = document.querySelector("#container")
     equipos.forEach( equipo => {
         const { nombre, fotoEscudo, numeroId } = equipo
@@ -30,7 +35,7 @@ export function crearCartasEquipos(equipos){
         $verEquipo.setAttribute("data-target", "#modal-informacion")
         $verEquipo.setAttribute("data-toggle", "modal")
         $verEquipo.addEventListener( "click", async () => {
-            mostrarInformacionEquipo(await obtenerInfoEquipo(numeroId, "ver"))
+            callbackParaVerEquipo(await callbackParaObtenerInformacion(numeroId, "ver")) // obtenerInfoEquipo
         })
         $cartaBody.append($verEquipo)
 
@@ -40,8 +45,8 @@ export function crearCartasEquipos(equipos){
         $editarEquipo.setAttribute("data-target", "#modal-editar-equipo")
         $editarEquipo.setAttribute("data-toggle", "modal")
         $editarEquipo.addEventListener( "click", async (e) => {
-            mostrarEditarEquipo(await obtenerInfoEquipo(numeroId, "editar"))
-        })
+            callbackParaEditarEquipo(await callbackParaObtenerInformacion(numeroId, "editar"))
+        })                                 // obtenerInfoEquipo
         $cartaBody.append($editarEquipo)
 
 
@@ -49,7 +54,7 @@ export function crearCartasEquipos(equipos){
         $borrarEquipo.className = "btn btn-danger button"
         $borrarEquipo.textContent = "Borrar"
         $borrarEquipo.addEventListener( "click", async () => {
-            borrarEquipoDeLista(numeroId)
+            callbackParaEliminarEquipo(numeroId)
         })
         $cartaBody.append($borrarEquipo)
 
@@ -57,9 +62,11 @@ export function crearCartasEquipos(equipos){
     })
 }
 
-const $formEditarEquipo = document.querySelector("#form-editar-equipo")
+export function manejarEdicionDeEquipo(callbackParaEnviarData){
 
-$formEditarEquipo.addEventListener( "submit", (e) => {
+    const $formEditarEquipo = document.querySelector("#form-editar-equipo")
+
+    $formEditarEquipo.addEventListener( "submit", (e) => {
     const id = document.querySelector("#numeroId-editar").value
 
     var formElement = document.getElementById("form-editar-equipo")
@@ -70,12 +77,16 @@ $formEditarEquipo.addEventListener( "submit", (e) => {
     const foto = URL.createObjectURL(file)
     formData.append('escudo', foto);
 
-    enviarEdicionDeEquipo(id , formData)
-})
+    callbackParaEnviarData(id , formData)
 
-const $formAgregarEquipo = document.querySelector("#form-agregar-equipo")
+    })
+}   
 
-$formAgregarEquipo.addEventListener( "submit", (e) => {
+export function manejarAgregadoEquipo(callbackParaAgregarEquipo){
+
+    const $formAgregarEquipo = document.querySelector("#form-agregar-equipo")
+
+    $formAgregarEquipo.addEventListener( "submit", (e) => {
 
     var formElement = document.getElementById("form-agregar-equipo")
     var fileInput = document.querySelector("#imagen-agregar")
@@ -85,10 +96,12 @@ $formAgregarEquipo.addEventListener( "submit", (e) => {
     const foto = URL.createObjectURL(file)
     formData.append('escudo', foto)
 
-    enviarAgregarEquipo(formData)
-})
+    callbackParaAgregarEquipo(formData)
+    
+    })
+}
 
-function mostrarEditarEquipo(equipo){
+export function mostrarEditarEquipo(equipo){
     document.querySelector("#nombre-editar").value = equipo.nombre
     document.querySelector("#tla-editar").value = equipo.abreviatura
     document.querySelector("#anoFundacion-editar").value = equipo.anoFundacion
@@ -100,7 +113,7 @@ function mostrarEditarEquipo(equipo){
     document.querySelector("#website-editar").value = equipo.website
 }   
 
-function mostrarInformacionEquipo(equipo){
+export function mostrarInformacionEquipo(equipo){
     document.querySelector("#nombre-ver").textContent = equipo.nombre
     document.querySelector("#escudo-ver").src = equipo.fotoEscudo
     document.querySelector("#tla-ver").textContent = equipo.abreviatura
@@ -113,7 +126,7 @@ function mostrarInformacionEquipo(equipo){
     document.querySelector("#website-ver").textContent = equipo.website
 }   
 
-function borrarEquipoDeLista(id){
+export function borrarEquipoDeLista(id){
     borrarEquipo(id)
     document.location.reload(true)
 }
