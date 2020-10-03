@@ -53,7 +53,7 @@ export function crearCartasEquipos(
         const $borrarEquipo = document.createElement("a")
         $borrarEquipo.className = "btn btn-danger button"
         $borrarEquipo.textContent = "Borrar"
-        $borrarEquipo.addEventListener( "click", async () => {
+        $borrarEquipo.addEventListener( "click", () => {
             callbackParaEliminarEquipo(numeroId)
         })
         $cartaBody.append($borrarEquipo)
@@ -67,6 +67,9 @@ export function manejarEdicionDeEquipo(callbackParaEnviarData){
     const $formEditarEquipo = document.querySelector("#form-editar-equipo")
 
     $formEditarEquipo.addEventListener( "submit", (e) => {
+
+    e.preventDefault()
+
     const id = document.querySelector("#numeroId-editar").value
 
     var formElement = document.getElementById("form-editar-equipo")
@@ -79,14 +82,17 @@ export function manejarEdicionDeEquipo(callbackParaEnviarData){
 
     callbackParaEnviarData(id , formData)
 
+    window.location.href = "/"
+
     })
 }   
-
 export function manejarAgregadoEquipo(callbackParaAgregarEquipo){
 
     const $formAgregarEquipo = document.querySelector("#form-agregar-equipo")
 
     $formAgregarEquipo.addEventListener( "submit", (e) => {
+
+    e.preventDefault()
 
     var formElement = document.getElementById("form-agregar-equipo")
     var fileInput = document.querySelector("#imagen-agregar")
@@ -97,7 +103,8 @@ export function manejarAgregadoEquipo(callbackParaAgregarEquipo){
     formData.append('escudo', foto)
 
     callbackParaAgregarEquipo(formData)
-    
+
+    window.location.href = "/"
     })
 }
 
@@ -128,5 +135,5 @@ export function mostrarInformacionEquipo(equipo){
 
 export function borrarEquipoDeLista(id){
     borrarEquipo(id)
-    document.location.reload(true)
+    window.location.href = "/"
 }
