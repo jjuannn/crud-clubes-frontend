@@ -13,8 +13,6 @@ Correr **npm run dev** en [CRUD-CLUBES-API](https://github.com/jjuannn/CRUD-Club
 
 ## Lista de cosas a agregar:
 - [ ] Testing.
-- [ ] Mostrar mensaje si hay un error al crear un equipo.
-- [ ] Mostrar mensaje si hay un error al borrar un equipo.
 
 # Fotos del proyecto: 
 ### Vista del home:
