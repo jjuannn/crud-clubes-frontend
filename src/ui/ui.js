@@ -77,8 +77,11 @@ export function manejarEdicionDeEquipo(callbackParaEnviarData){
     var formData = new FormData(formElement)
     
     var file = fileInput.files[0];
-    const foto = URL.createObjectURL(file)
-    formData.append('escudo', foto);
+    if(file){
+        const foto = URL.createObjectURL(file)
+        formData.append('escudo', foto);
+    }
+    
 
     callbackParaEnviarData(id , formData)
 
